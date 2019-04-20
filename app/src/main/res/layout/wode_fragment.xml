@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/wode_fragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <ImageView
+            android:id="@+id/wode_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/banner_back_color"
+            />
+
+        <Button
+            android:id="@+id/wode_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/wode_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="userName"
+            android:textAllCaps="false"
+            android:textSize="30sp"
+            android:background="@android:color/transparent"
+            />
+        <Button
+            android:id="@+id/wode_change_my"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修改我的信息"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/wode_img"/>
+        <Button
+            android:id="@+id/wode_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="退出"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_below="@+id/wode_change_my"/>
+        <Button
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*****"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_below="@+id/wode_exit" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>
