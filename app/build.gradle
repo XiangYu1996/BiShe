@@ -3,13 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
 
-    //导入百度地图SDK的jar包时设置的sourceSets
-    sourceSets{
-        main{
-            jniLibs.srcDir 'libs'
-            jni.srcDirs = []    //disable automatic ndk-build
-        }
-    }
+
     defaultConfig {
         applicationId "com.example.testbishe"
         minSdkVersion 14
