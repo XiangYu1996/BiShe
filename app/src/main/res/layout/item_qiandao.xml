@@ -8,8 +8,6 @@
     android:id="@+id/item_qiandao"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
-
-
     >
 
 
@@ -17,7 +15,6 @@
         android:id="@+id/item_qiandao_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="03-215"
         android:layout_weight="1" />
     <TextView
         android:id="@+id/item_qiandao_class"
@@ -41,5 +38,7 @@
         android:layout_toRightOf="@+id/item_qiandao_teacher"
         android:layout_weight="1"
         android:layout_marginBottom="10dp"/>
+
+
 
 </LinearLayout>

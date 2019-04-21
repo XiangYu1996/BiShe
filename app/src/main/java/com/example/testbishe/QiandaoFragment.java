@@ -33,8 +33,8 @@ public class QiandaoFragment extends Fragment {
     private final String TAG = "MainActivity";
     private LocationClient mLocationClient;
     private BDAbstractLocationListener mBDLocationListener;
-    private Double latitude;
-    private Double longitude;
+    private double latitude;
+    private double longitude;
 
 
 
@@ -49,11 +49,15 @@ public class QiandaoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.qiandao_fragment, container, false);
 
+
         // 声明LocationClient类
         mLocationClient = new LocationClient(this.getContext());
         mBDLocationListener = new MyBDLocationListener();
         // 注册监听
         mLocationClient.registerLocationListener(mBDLocationListener);
+
+
+
 
 
         initList();
@@ -116,10 +120,20 @@ private class MyBDLocationListener extends BDAbstractLocationListener {
                  latitude = bdLocation.getLatitude();
                  longitude = bdLocation.getLongitude();
                 //String address = bdLocation.getAddrStr();
+                //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
+                int errorCode = bdLocation.getLocType();
                 Log.i(TAG,  " latitude:" + latitude
-                        + " longitude:" + longitude + "—");
+                        + " longitude:" + longitude + "—"+"获取定位类型、定位错误返回码"+errorCode);
                 //Toast.makeText(getContext(), " 经度:" + latitude
                 //       + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
+
+
+
+
+            }
+
+
+
                 if (mLocationClient.isStarted()) {
                     // 获得位置之后停止定位
                     mLocationClient.stop();
@@ -128,7 +142,7 @@ private class MyBDLocationListener extends BDAbstractLocationListener {
         }
 
 
-}
+
 
 
 
