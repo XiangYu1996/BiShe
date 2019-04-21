@@ -35,7 +35,8 @@ public class QiandaoFragment extends Fragment {
     private BDAbstractLocationListener mBDLocationListener;
     private double latitude;
     private double longitude;
-
+    private double mLatitude1;
+    private double mLongitude1;
 
 
     public QiandaoFragment(){
@@ -98,7 +99,7 @@ public void getLocation(){
 
 
     private void initList() {
-        for (int i=0;i<10;i++) {
+        for (int i=0;i<3;i++) {
             ItemQiandao messi = new ItemQiandao("03-111", "高数", "胡明",latitude,longitude);
             mList.add(messi);
         }
@@ -129,8 +130,7 @@ private class MyBDLocationListener extends BDAbstractLocationListener {
                 int errorCode = bdLocation.getLocType();
                 Log.v("GPS",  " 经度:" + latitude
                         + " 纬度:" + longitude + "—"+"获取定位类型、定位错误返回码"+errorCode+" "+address);
-                Toast.makeText(getContext(), " 经度:" + latitude
-                       + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), " 经度:" + latitude + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
 
 
 

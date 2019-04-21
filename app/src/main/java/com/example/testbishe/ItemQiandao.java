@@ -6,6 +6,9 @@ public class ItemQiandao {
     private String classname;
     private String teachername;
 
+    private double latitude ;
+    private double longitude;
+
     public double getLatitude() {
         return latitude;
     }
@@ -22,8 +25,7 @@ public class ItemQiandao {
         this.longitude = longitude;
     }
 
-    private double latitude ;
-    private double longitude;
+
 
 
 
