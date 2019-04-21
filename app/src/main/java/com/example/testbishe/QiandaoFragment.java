@@ -31,7 +31,7 @@ public class QiandaoFragment extends Fragment {
 
     //百度地图获取定位
     private final String TAG = "MainActivity";
-    private LocationClient mLocationClient;
+    private LocationClient mLocationClient = null;
     private BDAbstractLocationListener mBDLocationListener;
     private double latitude;
     private double longitude;
@@ -60,7 +60,8 @@ public class QiandaoFragment extends Fragment {
 
 
 
-        initList();
+        getLocation();
+
 
         mRecyclerView = view.findViewById(R.id.qiandao_recyclerView);
         mItemQiandaoAdapter = new ItemQiandaoAdapter(mList);
@@ -70,26 +71,30 @@ public class QiandaoFragment extends Fragment {
         mRecyclerView.addItemDecoration(new RecycleViewDivider(this.getContext(), LinearLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(mItemQiandaoAdapter);
 
+        initList();
 
         return view;
     }
 
 
-    /** 获得所在位置经纬度及详细地址 */
-    public void getLocation(View view) {
-        // 声明定位参数
-        LocationClientOption option = new LocationClientOption();
-        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);// 设置定位模式 高精度
-        option.setCoorType("bd09ll");// 设置返回定位结果是百度经纬度 默认gcj02
-        option.setScanSpan(5000);// 设置发起定位请求的时间间隔 单位ms
-        option.setIsNeedAddress(true);// 设置定位结果包含地址信息
-        option.setNeedDeviceDirect(true);// 设置定位结果包含手机机头 的方向
-        // 设置定位参数
-        mLocationClient.setLocOption(option);
-        // 启动定位
-        mLocationClient.start();
 
-    }
+
+    /** 获得所在位置经纬度及详细地址 */
+public void getLocation(){
+    // 声明定位参数  
+    LocationClientOption option = new LocationClientOption();
+    option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);// 设置定位模式 高精度  
+    option.setCoorType("bd09ll");// 设置返回定位结果是百度经纬度 默认gcj02  
+    option.setScanSpan(5000);// 设置发起定位请求的时间间隔 单位ms  
+    option.setIsNeedAddress(true);// 设置定位结果包含地址信息  
+    option.setNeedDeviceDirect(true);// 设置定位结果包含手机机头 的方向  
+    // 设置定位参数  
+    mLocationClient.setLocOption(option);
+    // 启动定位  
+    mLocationClient.start();
+
+}
+
 
 
     private void initList() {
@@ -119,13 +124,13 @@ private class MyBDLocationListener extends BDAbstractLocationListener {
                 // 根据BDLocation 对象获得经纬度以及详细地址信息
                  latitude = bdLocation.getLatitude();
                  longitude = bdLocation.getLongitude();
-                //String address = bdLocation.getAddrStr();
+                String address = bdLocation.getAddrStr();
                 //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
                 int errorCode = bdLocation.getLocType();
-                Log.i(TAG,  " latitude:" + latitude
-                        + " longitude:" + longitude + "—"+"获取定位类型、定位错误返回码"+errorCode);
-                //Toast.makeText(getContext(), " 经度:" + latitude
-                //       + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
+                Log.v("GPS",  " 经度:" + latitude
+                        + " 纬度:" + longitude + "—"+"获取定位类型、定位错误返回码"+errorCode+" "+address);
+                Toast.makeText(getContext(), " 经度:" + latitude
+                       + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
 
 
 

@@ -26,10 +26,10 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
             View itemQiandao = itemView;
-            item_address = (TextView) itemView.findViewById(R.id.item_qiandao_address);
-            item_classname = (TextView) itemView.findViewById(R.id.item_qiandao_class);
-            item_teacher = (TextView) itemView.findViewById(R.id.item_qiandao_teacher);
-            item_qiandao_img = (Button) itemView.findViewById(R.id.item_qiandao_img);
+            item_address = (TextView) itemQiandao.findViewById(R.id.item_qiandao_address);
+            item_classname = (TextView) itemQiandao.findViewById(R.id.item_qiandao_class);
+            item_teacher = (TextView) itemQiandao.findViewById(R.id.item_qiandao_teacher);
+            item_qiandao_img = (Button) itemQiandao.findViewById(R.id.item_qiandao_img);
         }
     }
     public ItemQiandaoAdapter(List<ItemQiandao> ItemQiandao){
@@ -48,11 +48,13 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                 .inflate(R.layout.item_qiandao,parent,false);
         final ViewHolder viewHolder = new ViewHolder(view);
 
+
         //为签到按钮设置点击事件
         viewHolder.item_qiandao_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = viewHolder.getAdapterPosition();
+
                 Toast.makeText(v.getContext(),mItemQiandaos.get(position).getAddress()+"  "
                         +mItemQiandaos.get(position).getClassname()+"   "
                         +mItemQiandaos.get(position).getTeachername()+"  经度"+mItemQiandaos.get(position).getLatitude()+"纬度"+mItemQiandaos.get(position).getLongitude(), Toast.LENGTH_SHORT).show();
