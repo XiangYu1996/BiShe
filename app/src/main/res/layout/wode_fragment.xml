@@ -14,7 +14,7 @@
             android:id="@+id/wode_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
             android:background="@color/banner_back_color"
             />
@@ -24,13 +24,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/wode_img"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="70dp"
             android:text="userName"
             android:textAllCaps="false"
             android:textSize="30sp"
             android:background="@android:color/transparent"
             />
+        <Button
+            android:id="@+id/wode_my"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我的信息"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/wode_img"/>
         <Button
             android:id="@+id/wode_change_my"
             android:layout_width="match_parent"
@@ -38,8 +47,23 @@
             android:text="修改我的信息"
             android:textAllCaps="false"
             android:gravity="left"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/wode_img"/>
+            android:layout_below="@+id/wode_my"/>
+        <Button
+            android:id="@+id/wode_zhuxiao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="注销登录"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_below="@+id/wode_change_pass"/>
+        <Button
+            android:id="@+id/wode_change_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="修改密码"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_below="@+id/wode_change_my" />
         <Button
             android:id="@+id/wode_exit"
             android:layout_width="match_parent"
@@ -47,15 +71,7 @@
             android:text="退出"
             android:textAllCaps="false"
             android:gravity="left"
-            android:layout_below="@+id/wode_change_my"/>
-        <Button
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="*****"
-            android:textAllCaps="false"
-            android:gravity="left"
-            android:layout_below="@+id/wode_exit" />
+            android:layout_below="@+id/wode_zhuxiao" />
 
 
 

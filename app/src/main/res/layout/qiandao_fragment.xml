@@ -5,20 +5,28 @@
     android:layout_height="match_parent"
     android:id="@+id/qiandao_fragment"
     >
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+    android:id="@+id/qiandao_tishi"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="以下为签到信息列表"
+    android:textSize="25sp"
+    android:gravity="center"
+    />
 
 
-
-<android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.RecyclerView
     android:id="@+id/qiandao_recyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:layout_below="@+id/qiandao_tishi"
+    android:layout_marginTop="50dp"
     >
-
-</android.support.v7.widget.RecyclerView>
-
+    </android.support.v7.widget.RecyclerView>
 
 
-
-
+</RelativeLayout>
 </FrameLayout>

@@ -55,7 +55,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                 int position = viewHolder.getAdapterPosition();
                 Toast.makeText(v.getContext(),mItemQiandaos.get(position).getAddress()+"  "
                         +mItemQiandaos.get(position).getClassname()+"   "
-                        +mItemQiandaos.get(position).getTeachername(), Toast.LENGTH_SHORT).show();
+                        +mItemQiandaos.get(position).getTeachername()+"  经度"+mItemQiandaos.get(position).getLatitude()+"纬度"+mItemQiandaos.get(position).getLongitude(), Toast.LENGTH_SHORT).show();
             }
         });
 

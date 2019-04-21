@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -32,6 +33,9 @@ public class QiandaoFragment extends Fragment {
     private final String TAG = "MainActivity";
     private LocationClient mLocationClient;
     private BDAbstractLocationListener mBDLocationListener;
+    private Double latitude;
+    private Double longitude;
+
 
 
     public QiandaoFragment(){
@@ -45,8 +49,14 @@ public class QiandaoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.qiandao_fragment, container, false);
 
-        initList();
+        // 声明LocationClient类
+        mLocationClient = new LocationClient(this.getContext());
+        mBDLocationListener = new MyBDLocationListener();
+        // 注册监听
+        mLocationClient.registerLocationListener(mBDLocationListener);
 
+
+        initList();
 
         mRecyclerView = view.findViewById(R.id.qiandao_recyclerView);
         mItemQiandaoAdapter = new ItemQiandaoAdapter(mList);
@@ -55,16 +65,6 @@ public class QiandaoFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.addItemDecoration(new RecycleViewDivider(this.getContext(), LinearLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(mItemQiandaoAdapter);
-
-
-        // 声明LocationClient类
-        mLocationClient = new LocationClient(this.getContext());
-        mBDLocationListener = new MyBDLocationListener();
-        // 注册监听
-        mLocationClient.registerLocationListener(mBDLocationListener);
-
-
-
 
 
         return view;
@@ -90,7 +90,7 @@ public class QiandaoFragment extends Fragment {
 
     private void initList() {
         for (int i=0;i<10;i++) {
-            ItemQiandao messi = new ItemQiandao("03=111", "高数", "胡明");
+            ItemQiandao messi = new ItemQiandao("03-111", "高数", "胡明",latitude,longitude);
             mList.add(messi);
         }
     }
@@ -113,11 +113,13 @@ private class MyBDLocationListener extends BDAbstractLocationListener {
             // 非空判断
             if (bdLocation != null) {
                 // 根据BDLocation 对象获得经纬度以及详细地址信息
-                double latitude = bdLocation.getLatitude();
-                double longitude = bdLocation.getLongitude();
-                String address = bdLocation.getAddrStr();
-                Log.i(TAG, "address:" + address + " latitude:" + latitude
+                 latitude = bdLocation.getLatitude();
+                 longitude = bdLocation.getLongitude();
+                //String address = bdLocation.getAddrStr();
+                Log.i(TAG,  " latitude:" + latitude
                         + " longitude:" + longitude + "—");
+                //Toast.makeText(getContext(), " 经度:" + latitude
+                //       + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
                 if (mLocationClient.isStarted()) {
                     // 获得位置之后停止定位
                     mLocationClient.stop();

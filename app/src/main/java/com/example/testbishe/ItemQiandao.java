@@ -5,6 +5,26 @@ public class ItemQiandao {
     private String address;
     private String classname;
     private String teachername;
+    private Double latitude;
+    private Double longitude;
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+
 
     public String getAddress() {
         return address;
@@ -32,11 +52,13 @@ public class ItemQiandao {
 
 
 
-    public ItemQiandao(String address,String classname,String teachername){
+    public ItemQiandao(String address,String classname,String teachername,double latitude,double longitude){
 
         this.address = address;
         this.classname =classname;
         this.teachername = teachername;
+        this.latitude = latitude;
+        this.longitude = longitude;
 
 
     }
