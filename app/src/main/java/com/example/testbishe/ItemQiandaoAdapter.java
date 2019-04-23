@@ -25,6 +25,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
     private BDAbstractLocationListener mBDLocationListener;
     private double latitude;
     private double longitude;
+    private String address;
 
 
 
@@ -71,9 +72,9 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                 .inflate(R.layout.item_qiandao,parent,false);
         final ViewHolder viewHolder = new ViewHolder(view);
 
-        // 声明LocationClient类
-        mLocationClient = new LocationClient(view.getContext());
-        mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
+//        // 声明LocationClient类
+//        mLocationClient = new LocationClient(view.getContext());
+//        mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
         // 注册监听
         //mLocationClient.registerLocationListener(mBDLocationListener);
         //获取地址
@@ -85,12 +86,11 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
             public void onClick(View v) {
                 int position = viewHolder.getAdapterPosition();
 
+                // 声明LocationClient类
+                mLocationClient = new LocationClient(v.getContext());
+                mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
 
-//
-//                // 声明LocationClient类
-//                mLocationClient = new LocationClient(v.getContext());
-//                mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
-//                // 注册监听
+                // 注册监听
                 mLocationClient.registerLocationListener(mBDLocationListener);
                   //获取地址
 
@@ -102,7 +102,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                             +mItemQiandaos.get(position).getClassname()+"   "
                             +mItemQiandaos.get(position).getTeachername()
                             +"  经度"+latitude
-                            +"纬度"+longitude, Toast.LENGTH_SHORT).show();
+                            +"纬度"+longitude+address, Toast.LENGTH_SHORT).show();
 
 
                     //使用后要注销监听，否则出错---经度:4.9E-324 纬度:4.9E-324
@@ -144,7 +144,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                 // 根据BDLocation 对象获得经纬度以及详细地址信息
                 latitude = bdLocation.getLatitude();
                 longitude = bdLocation.getLongitude();
-                String address = bdLocation.getAddrStr();
+                 address = bdLocation.getAddrStr();
                 //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
                 int errorCode = bdLocation.getLocType();
                 Log.v("GPS",  " 经度:" + latitude
