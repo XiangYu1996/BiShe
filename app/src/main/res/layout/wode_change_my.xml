@@ -1,41 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    >
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/change"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="修改我的信息"
         android:textSize="25sp"/>
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/change_name_text"
+        android:layout_below="@+id/change"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="姓名"
+        android:text="姓名:"
         android:textSize="25sp"/>
+    <EditText
+        android:id="@+id/change_name_edit"
+        android:layout_below="@+id/change"
+        android:layout_toRightOf="@+id/change_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="班级"
-        android:textSize="25sp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="学号"
-        android:textSize="25sp"/>
-    <Button
+        android:id="@+id/change_banji_text"
+        android:layout_below="@+id/change_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="班级:"
+        android:layout_marginTop="10dp"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/change_banji_edit"
+        android:layout_below="@+id/change_name_edit"
+        android:layout_toRightOf="@+id/change_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/change_xuehao_text"
+        android:layout_below="@+id/change_banji_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="学号:"
+        android:layout_marginTop="10dp"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/change_xuehao_edit"
+        android:layout_below="@+id/change_banji_edit"
+        android:layout_toRightOf="@+id/change_name_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/change_save"
+        android:layout_below="@+id/change_xuehao_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="保存"/>
     <Button
+        android:id="@+id/change_quxiao"
+        android:layout_below="@+id/change_xuehao_text"
+        android:layout_toRightOf="@+id/change_save"
+        android:layout_marginLeft="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="取消"/>
 
 
 
-</LinearLayout>
+</RelativeLayout>
