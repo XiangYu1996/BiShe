@@ -21,7 +21,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
     private List<ItemQiandao> mItemQiandaos;
 
 
-    private LocationClient mLocationClient = null;
+    private LocationClient mLocationClient;
     private BDAbstractLocationListener mBDLocationListener;
     private double latitude;
     private double longitude;
@@ -92,9 +92,9 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
 //                mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
 //                // 注册监听
                 mLocationClient.registerLocationListener(mBDLocationListener);
-//                //获取地址
+                  //获取地址
 
-                getLocation();
+               getLocation();
 
 
                 if (latitude != 0) {
