@@ -1,6 +1,5 @@
 package com.example.testbishe;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
@@ -79,13 +77,17 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
         // 注册监听
         mLocationClient.registerLocationListener(mBDLocationListener);
         //获取地址
-         getLocation();
+
 
         //为签到按钮设置点击事件
         viewHolder.item_qiandao_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = viewHolder.getAdapterPosition();
+
+                getLocation();
+
+
                 if (latitude != 0) {
                     Toast.makeText(v.getContext(),mItemQiandaos.get(position).getAddress()+"  "
                             +mItemQiandaos.get(position).getClassname()+"   "
@@ -97,6 +99,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
 
                 }
             }
+
         });
 
         return viewHolder;
