@@ -4,8 +4,9 @@ android {
     compileSdkVersion 27
     sourceSets{
         main{
-            jniLibs.srcDir 'libs'
-            jni.srcDirs = []    //disable automatic ndk-build
+            jniLibs.srcDirs = ['libs']
+//            jniLibs.srcDir 'libs'
+//            jni.srcDirs = []    //disable automatic ndk-build
         }
     }
 

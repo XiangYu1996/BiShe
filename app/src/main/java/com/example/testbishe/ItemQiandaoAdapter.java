@@ -75,7 +75,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
         mLocationClient = new LocationClient(view.getContext());
         mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
         // 注册监听
-        mLocationClient.registerLocationListener(mBDLocationListener);
+        //mLocationClient.registerLocationListener(mBDLocationListener);
         //获取地址
 
 
@@ -84,6 +84,15 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
             @Override
             public void onClick(View v) {
                 int position = viewHolder.getAdapterPosition();
+
+
+//
+//                // 声明LocationClient类
+//                mLocationClient = new LocationClient(v.getContext());
+//                mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
+//                // 注册监听
+                mLocationClient.registerLocationListener(mBDLocationListener);
+//                //获取地址
 
                 getLocation();
 
@@ -94,14 +103,19 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                             +mItemQiandaos.get(position).getTeachername()
                             +"  经度"+latitude
                             +"纬度"+longitude, Toast.LENGTH_SHORT).show();
+
+
+                    //使用后要注销监听，否则出错---经度:4.9E-324 纬度:4.9E-324
+                    mLocationClient.unRegisterLocationListener(mBDLocationListener);
+
                 }else {
                     Toast.makeText(v.getContext(), "GPS正在定位", Toast.LENGTH_SHORT).show();
 
                 }
+
             }
 
         });
-
         return viewHolder;
     }
 
