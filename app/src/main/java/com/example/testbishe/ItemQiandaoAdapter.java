@@ -1,5 +1,6 @@
 package com.example.testbishe;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -61,18 +62,12 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
         mLocationClient.setLocOption(option);
         // 启动定位  
         mLocationClient.start();
-
     }
 
     @NonNull
     @Override
     public ItemQiandaoAdapter.ViewHolder onCreateViewHolder(
             @NonNull ViewGroup parent, int viewType) {
-
-
-
-
-
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_qiandao,parent,false);
@@ -83,31 +78,24 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
         mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
         // 注册监听
         mLocationClient.registerLocationListener(mBDLocationListener);
-
-
-        getLocation();
+        //获取地址
+         getLocation();
 
         //为签到按钮设置点击事件
         viewHolder.item_qiandao_img.setOnClickListener(new View.OnClickListener() {
-
-
-
-
-
             @Override
             public void onClick(View v) {
-
-
-
                 int position = viewHolder.getAdapterPosition();
+                if (latitude != 0) {
+                    Toast.makeText(v.getContext(),mItemQiandaos.get(position).getAddress()+"  "
+                            +mItemQiandaos.get(position).getClassname()+"   "
+                            +mItemQiandaos.get(position).getTeachername()
+                            +"  经度"+latitude
+                            +"纬度"+longitude, Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(v.getContext(), "GPS正在定位", Toast.LENGTH_SHORT).show();
 
-
-
-                Toast.makeText(v.getContext(),mItemQiandaos.get(position).getAddress()+"  "
-                        +mItemQiandaos.get(position).getClassname()+"   "
-                        +mItemQiandaos.get(position).getTeachername()
-                        +"  经度"+latitude
-                        +"纬度"+longitude, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -146,13 +134,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
                         + " 纬度:" + longitude + "—"+"获取定位类型、定位错误返回码"+errorCode+" "+address);
                 //Toast.makeText(getContext(), " 经度:" + latitude + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
 
-
-
-
             }
-
-
-
             if (mLocationClient.isStarted()) {
                 // 获得位置之后停止定位
                 mLocationClient.stop();
