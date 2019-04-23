@@ -30,13 +30,6 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
 
         initViews(view);
 
-
-
-
-
-
-
-
         return view;
     }
 
@@ -49,6 +42,12 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
         mWode_exit = (TextView) view.findViewById(R.id.wode_exit);
 
         mUserName.setOnClickListener(this);
+        mWode_my.setOnClickListener(this);
+        mWode_change_my.setOnClickListener(this);
+        mWode_change_pass.setOnClickListener(this);
+        mWode_zhuxiao.setOnClickListener(this);
+        mWode_exit.setOnClickListener(this);
+
 
     }
 
@@ -58,8 +57,8 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()){
             case R.id.wode_my:
 
-                Intent wode_my = new Intent(getContext(),WodeMyAcitvity.class);
-                startActivity(wode_my);
+                Intent intwodemy = new Intent(getContext(),WodeMyAcitvity.class);
+                startActivity(intwodemy);
                 break;
             case R.id.wode_change_my:
                 Intent wode_change_my = new Intent(getContext(),WodeChangeMyAcitvity.class);
