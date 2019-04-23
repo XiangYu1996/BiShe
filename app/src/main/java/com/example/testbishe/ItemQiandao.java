@@ -6,24 +6,24 @@ public class ItemQiandao {
     private String classname;
     private String teachername;
 
-    private double latitude ;
-    private double longitude;
+//    private double latitude ;
+//    private double longitude;
 
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
+//    public double getLatitude() {
+//        return latitude;
+//    }
+//
+//    public void setLatitude(double latitude) {
+//        this.latitude = latitude;
+//    }
+//
+//    public double getLongitude() {
+//        return longitude;
+//    }
+//
+//    public void setLongitude(double longitude) {
+//        this.longitude = longitude;
+//    }
 
 
 
@@ -58,13 +58,13 @@ public class ItemQiandao {
 
 
 
-    public ItemQiandao(String address,String classname,String teachername,double latitude,double longitude){
+    public ItemQiandao(String address,String classname,String teachername){
 
         this.address = address;
         this.classname =classname;
         this.teachername = teachername;
-        this.latitude = latitude;
-        this.longitude = longitude;
+//        this.latitude = latitude;
+//        this.longitude = longitude;
 
 
     }
