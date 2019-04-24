@@ -37,7 +37,7 @@
         android:layout_below="@+id/mima_edix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="登录"/>
+        android:text="登录(get)"/>
     <Button
         android:id="@+id/zhuce_btn"
         android:layout_below="@+id/mima_edix"
@@ -45,7 +45,7 @@
         android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="注册"/>
+        android:text="登录（post）"/>
 
 
 

@@ -58,6 +58,13 @@
         <activity android:name=".WodeMyAcitvity"/>
         <activity android:name=".WodeChangeMyAcitvity"/>
         <activity android:name=".WodeChangePasswordAcitvity"/>
+        <activity android:name=".DengLuActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
 
