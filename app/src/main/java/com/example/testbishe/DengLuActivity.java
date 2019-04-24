@@ -1,5 +1,6 @@
 package com.example.testbishe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +53,8 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.denglu_btn:
-                loginGET(v);
+                Intent dengluIntent = new Intent(this,MainActivity.class);
+                startActivity(dengluIntent);
                 break;
             case R.id.zhuce_btn:
                 loginPOST(v);
