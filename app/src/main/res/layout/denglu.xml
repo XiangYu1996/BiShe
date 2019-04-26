@@ -47,6 +47,31 @@
         android:layout_height="wrap_content"
         android:text="登录（post）"/>
 
+    <RadioGroup
+        android:id="@+id/denglu_radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zhuce_btn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学生" />
+        <RadioButton
+            android:id="@+id/radioButton2_teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="教师" />
+
+    </RadioGroup>
+
+
 
 
 </RelativeLayout>

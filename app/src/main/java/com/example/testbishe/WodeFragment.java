@@ -64,6 +64,16 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
      AlertDialog alertdialog1=alertdialogbuilder.create();
      alertdialog1.show();
      }
+    public void showdialog2(View view)
+    {
+        //Toast.makeText(this,"clickme",Toast.LENGTH_LONG).show();
+        AlertDialog.Builder alertdialogbuilder=new AlertDialog.Builder(view.getContext());
+        alertdialogbuilder.setMessage("您确认要注销登录");
+        alertdialogbuilder.setPositiveButton("确定", click1);
+        alertdialogbuilder.setNegativeButton("取消", click2);
+        AlertDialog alertdialog1=alertdialogbuilder.create();
+        alertdialog1.show();
+    }
 
     private DialogInterface.OnClickListener click1=new DialogInterface.OnClickListener()
     {
@@ -102,7 +112,8 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.wode_zhuxiao:
-                Toast.makeText(getContext(), "注销", Toast.LENGTH_SHORT).show();
+                showdialog2(view);
+                //Toast.makeText(getContext(), "注销", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.wode_exit:
