@@ -1,5 +1,7 @@
 package com.example.testbishe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -52,6 +54,36 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
     }
 
 
+    public void showdialog(View view)
+    {
+     //Toast.makeText(this,"clickme",Toast.LENGTH_LONG).show();
+     AlertDialog.Builder alertdialogbuilder=new AlertDialog.Builder(view.getContext());
+     alertdialogbuilder.setMessage("您确认要退出程序");
+     alertdialogbuilder.setPositiveButton("确定", click1);
+     alertdialogbuilder.setNegativeButton("取消", click2);
+     AlertDialog alertdialog1=alertdialogbuilder.create();
+     alertdialog1.show();
+     }
+
+    private DialogInterface.OnClickListener click1=new DialogInterface.OnClickListener()
+    {
+        @Override
+        public void onClick(DialogInterface arg0,int arg1)
+        {
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
+    };
+    private DialogInterface.OnClickListener click2=new DialogInterface.OnClickListener()
+    {@Override
+
+    public void onClick(DialogInterface arg0,int arg1)
+    {
+        arg0.cancel();
+    }
+    };
+
+
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -74,7 +106,8 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.wode_exit:
-                Toast.makeText(getContext(), "退出", Toast.LENGTH_SHORT).show();
+
+                showdialog(view);
 
                 break;
 
