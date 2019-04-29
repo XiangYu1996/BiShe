@@ -179,7 +179,7 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void requestPost(HashMap<String, String> paramsMap) {
         try {
-            String baseUrl = "http://10.0.2.2:8080/TestServices/servlet/LoginDateServlet";
+            String baseUrl = "http://39.96.65.7:8080/TestServices/servlet/LoginDateServlet";
             //合成参数
             StringBuilder tempParams = new StringBuilder();
             int pos = 0;
