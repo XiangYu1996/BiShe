@@ -1,27 +1,29 @@
 package com.example.testbishe;
 
-import android.graphics.Color;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
+
+public class MainActivityStudent extends AppCompatActivity implements View.OnClickListener {
+
     private TextView title, banner_qiandao_text, banner_lishi_text, banner_wode_text;
     private ViewPager vp;
-    private QiandaoFragmentTeacher mQiandaoFragmentTeacher;
+    private QiandaoFragment mQiandaoFragment;
     private LishiFragment mLishiFragment;
     private WodeFragment mWodeFragment;
 
     private List<Fragment> mFragmentList = new ArrayList<Fragment>();
     private TestViewStatePagerAdapter mFragmentAdapter;
 
-    String[] titles = new String[]{"签到", "记录", "我的"};
+    String[] titles = new String[]{"签到", "历史", "我的"};
 
 
 
@@ -42,7 +44,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         banner_qiandao_text.setTextColor(Color.parseColor("#66CDAA"));
 
         //ViewPager的监听事件
-        vp.addOnPageChangeListener(new MainActivity2.myPageChangeListener());
+        vp.addOnPageChangeListener(new myPageChangeListener());
     }
 
 
@@ -60,12 +62,12 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
 
 
         vp = (ViewPager) findViewById(R.id.main_view_pager);
-        mQiandaoFragmentTeacher = new QiandaoFragmentTeacher();
+        mQiandaoFragment = new QiandaoFragment();
         mLishiFragment = new LishiFragment();
         mWodeFragment = new WodeFragment();
 
         //给FragmentList添加数据
-        mFragmentList.add(mQiandaoFragmentTeacher);
+        mFragmentList.add(mQiandaoFragment);
         mFragmentList.add(mLishiFragment);
         mFragmentList.add(mWodeFragment);
 
@@ -140,4 +142,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
             banner_lishi_text.setTextColor(Color.parseColor("#000000"));
         }
     }
+
+
+
 }

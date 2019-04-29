@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 public class DengLuActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String TAG = MainActivity.class.getCanonicalName();
+    String TAG = MainActivityStudent.class.getCanonicalName();
     private Button denglu;
     private Button zhuce;
     private RadioButton radioButton_student;
@@ -65,9 +65,9 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.denglu_btn:
                 if (radioButton_student.isChecked()) {
-                    dengluIntent = new Intent(this, MainActivity.class);
+                    dengluIntent = new Intent(this, MainActivityStudent.class);
                 }else if (radioButton_teacher.isChecked()){
-                    dengluIntent = new Intent(this, MainActivity2.class);
+                    dengluIntent = new Intent(this, MainActivityTeacher.class);
                 }
                 startActivity(dengluIntent);
                 break;
