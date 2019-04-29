@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 
 import java.io.ByteArrayOutputStream;
@@ -32,6 +33,8 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
     private RadioButton radioButton_teacher;
     private HashMap<String, String> stringHashMap;
     private Intent dengluIntent;
+    private EditText username;
+    private EditText password;
 
 
     @Override
@@ -43,6 +46,8 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initViews() {
 
+        username = (EditText) findViewById(R.id.yonghuming_edix);
+        password = (EditText) findViewById(R.id.mima_edix);
         denglu = (Button) findViewById(R.id.denglu_btn);
         zhuce = (Button) findViewById(R.id.zhuce_btn);
         radioButton_student = (RadioButton) findViewById(R.id.radioButton_student);
@@ -77,14 +82,14 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
 
 
     public void loginGET(View view) {
-        stringHashMap.put("username", denglu.getText().toString());
-        stringHashMap.put("password", zhuce.getText().toString());
+        stringHashMap.put("username", username.getText().toString());
+        stringHashMap.put("password", password.getText().toString());
         new Thread(getRun).start();
 
     }
     public void loginPOST(View view) {
-        stringHashMap.put("username", denglu.getText().toString());
-        stringHashMap.put("password", zhuce.getText().toString());
+        stringHashMap.put("username", username.getText().toString());
+        stringHashMap.put("password", password.getText().toString());
 
         new Thread(postRun).start();
     }
