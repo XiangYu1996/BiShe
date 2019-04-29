@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -27,7 +28,10 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
     String TAG = MainActivity.class.getCanonicalName();
     private Button denglu;
     private Button zhuce;
+    private RadioButton radioButton_student;
+    private RadioButton radioButton_teacher;
     private HashMap<String, String> stringHashMap;
+    private Intent dengluIntent;
 
 
     @Override
@@ -41,6 +45,8 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
 
         denglu = (Button) findViewById(R.id.denglu_btn);
         zhuce = (Button) findViewById(R.id.zhuce_btn);
+        radioButton_student = (RadioButton) findViewById(R.id.radioButton_student);
+        radioButton_teacher = (RadioButton) findViewById(R.id.radioButton_teacher);
         stringHashMap = new HashMap<>();
 
         denglu.setOnClickListener(this);
@@ -53,7 +59,11 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.denglu_btn:
-                Intent dengluIntent = new Intent(this,MainActivity.class);
+                if (radioButton_student.isChecked()) {
+                    dengluIntent = new Intent(this, MainActivity.class);
+                }else if (radioButton_teacher.isChecked()){
+                    dengluIntent = new Intent(this, MainActivity2.class);
+                }
                 startActivity(dengluIntent);
                 break;
             case R.id.zhuce_btn:
@@ -110,7 +120,7 @@ public class DengLuActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void requestGet(HashMap<String, String> paramsMap) {
         try {
-            String baseUrl = "http://10.0.2.2:8080/TestServices/servlet/LoginDateServlet?";
+            String baseUrl = "http://39.96.65.7:8080/TestServices/servlet/LoginDateServlet?";
             StringBuilder tempParams = new StringBuilder();
             int pos = 0;
             for (String key : paramsMap.keySet()) {

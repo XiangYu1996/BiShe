@@ -49,6 +49,7 @@
 
     <RadioGroup
         android:id="@+id/denglu_radiogroup"
+        android:checkedButton="@id/radioButton_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/zhuce_btn"
@@ -64,7 +65,7 @@
             android:layout_height="wrap_content"
             android:text="学生" />
         <RadioButton
-            android:id="@+id/radioButton2_teacher"
+            android:id="@+id/radioButton_teacher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="教师" />

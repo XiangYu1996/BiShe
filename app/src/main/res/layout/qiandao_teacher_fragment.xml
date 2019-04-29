@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/qiandao_teacher_fragment">
+
+
+    <Button
+        android:id="@+id/qiandao_teacher_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="100dp"
+        android:background="@color/banner_back_color"
+        android:text="开启签到"
+        android:textSize="35sp"
+        android:visibility="visible" />
+    <RelativeLayout
+        android:id="@+id/qiandao_fragment_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+
+        >
+
+        <TextView
+            android:id="@+id/qiandaoxinxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="签到信息:"/>
+        <LinearLayout
+            android:id="@+id/linerlay"
+            android:layout_below="@+id/qiandaoxinxi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="签到地点:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="签到课程:"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="签到班级:"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/qiandaoxinxi_item"
+            android:layout_below="@+id/linerlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="03-111"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="高数"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="物联11501物联11502"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/qiandao_daojishi"
+            android:layout_below="@+id/qiandaoxinxi_item"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1:06"
+            android:textSize="30sp"/>
+        <TextView
+            android:id="@+id/qiandao_daojishi_text"
+            android:layout_toRightOf="@+id/qiandao_daojishi"
+            android:layout_below="@+id/qiandaoxinxi_item"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="后签到结束"
+            android:textSize="30sp"/>
+
+
+
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>
