@@ -1,7 +1,5 @@
 package com.example.testbishe;
 
-
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +13,7 @@ import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.example.testbishe.QianDao.ItemQiandaoAdapter;
+
 
 public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClickListener {
 
@@ -70,33 +68,19 @@ public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-//        // 声明LocationClient类
-//        mLocationClient = new LocationClient(v.getContext());
-//        mBDLocationListener = new MyBDLocationListener();
-//
-//        // 注册监听
-//        mLocationClient.registerLocationListener(mBDLocationListener);
-//        //获取地址
+        switch (v.getId()) {
+            case R.id.get_gps:
+                     if (latitude != 0) {
+                         show_jiangdu.setText(String.valueOf(latitude));
+                         show_weidu.setText(String.valueOf(longitude));
+                         //使用后要注销监听，否则出错---经度:4.9E-324 纬度:4.9E-324
+                         mLocationClient.unRegisterLocationListener(mBDLocationListener);
+                     } else {
+                         Toast.makeText(v.getContext(), "GPS正在定位", Toast.LENGTH_SHORT).show();
+                     }
 
-//        getLocation();
-
-
-        if (latitude != 0) {
-
-            show_jiangdu.setText(String.valueOf(latitude));
-            show_weidu.setText(String.valueOf(longitude));
-//            Toast.makeText(v.getContext(),"  经度"+latitude
-//                    +"纬度"+longitude+address, Toast.LENGTH_SHORT).show();
-
-
-            //使用后要注销监听，否则出错---经度:4.9E-324 纬度:4.9E-324
-            mLocationClient.unRegisterLocationListener(mBDLocationListener);
-
-        }else {
-            Toast.makeText(v.getContext(), "GPS正在定位", Toast.LENGTH_SHORT).show();
-
+                break;
         }
-
     }
 
     private class MyBDLocationListener extends BDAbstractLocationListener {
@@ -114,7 +98,6 @@ public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClick
                 Log.v("GPS",  " 经度:" + latitude
                         + " 纬度:" + longitude + "—"+"获取定位类型、定位错误返回码"+errorCode+" "+address);
                 //Toast.makeText(getContext(), " 经度:" + latitude + " 纬度:" + longitude + "—", Toast.LENGTH_SHORT).show();
-
             }
             if (mLocationClient.isStarted()) {
                 // 获得位置之后停止定位
@@ -127,8 +110,5 @@ public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClick
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mBDLocationListener!=null){
-            mLocationClient.stop();
-        }
     }
 }
