@@ -17,13 +17,13 @@ import com.example.testbishe.QianDao.RecycleViewDivider;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QiandaoFragment extends Fragment {
+public class QiandaoFragmentStudent extends Fragment {
     List<ItemQiandao> mList = new ArrayList<>();
     RecyclerView mRecyclerView;
     ItemQiandaoAdapter mItemQiandaoAdapter;
     TextView qiandao_recycle_null;
 
-    public QiandaoFragment(){
+    public QiandaoFragmentStudent(){
         // Required empty public constructor
 
     }

@@ -18,7 +18,7 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
 
     private TextView title, banner_qiandao_text, banner_lishi_text, banner_wode_text;
     private ViewPager vp;
-    private QiandaoFragment mQiandaoFragment;
+    private QiandaoFragmentStudent mQiandaoFragmentStudent;
     private LishiFragment mLishiFragment;
     private WodeFragment mWodeFragment;
 
@@ -64,12 +64,12 @@ public class MainActivityStudent extends AppCompatActivity implements View.OnCli
 
 
         vp = (ViewPager) findViewById(R.id.main_view_pager);
-        mQiandaoFragment = new QiandaoFragment();
+        mQiandaoFragmentStudent = new QiandaoFragmentStudent();
         mLishiFragment = new LishiFragment();
         mWodeFragment = new WodeFragment();
 
         //给FragmentList添加数据
-        mFragmentList.add(mQiandaoFragment);
+        mFragmentList.add(mQiandaoFragmentStudent);
         mFragmentList.add(mLishiFragment);
         mFragmentList.add(mWodeFragment);
 
