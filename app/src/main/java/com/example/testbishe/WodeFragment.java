@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.testbishe.My.WodeChangeMyAcitvity;
+import com.example.testbishe.My.WodeChangePasswordAcitvity;
+import com.example.testbishe.My.WodeMyAcitvity;
 
 public class WodeFragment extends Fragment implements View.OnClickListener {
 
@@ -99,15 +102,15 @@ public class WodeFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()){
             case R.id.wode_my:
 
-                Intent intwodemy = new Intent(getContext(),WodeMyAcitvity.class);
+                Intent intwodemy = new Intent(getContext(), WodeMyAcitvity.class);
                 startActivity(intwodemy);
                 break;
             case R.id.wode_change_my:
-                Intent wode_change_my = new Intent(getContext(),WodeChangeMyAcitvity.class);
+                Intent wode_change_my = new Intent(getContext(), WodeChangeMyAcitvity.class);
                 startActivity(wode_change_my);
                 break;
             case R.id.wode_change_pass:
-                Intent intent = new Intent(getContext(),WodeChangePasswordAcitvity.class);
+                Intent intent = new Intent(getContext(), WodeChangePasswordAcitvity.class);
                 startActivity(intent);
 
                 break;

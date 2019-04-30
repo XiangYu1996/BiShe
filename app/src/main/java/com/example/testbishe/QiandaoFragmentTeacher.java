@@ -1,5 +1,6 @@
 package com.example.testbishe;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,8 +38,13 @@ public class QiandaoFragmentTeacher extends Fragment {
         qiandao_new.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                qiandao_new.setVisibility(View.GONE);
-                qiandao_fragment_main.setVisibility(View.VISIBLE);
+
+                Intent new_qiandao_intent =new Intent(v.getContext(), TeacherNewQiaodao.class);
+                startActivity(new_qiandao_intent);
+
+
+//                qiandao_new.setVisibility(View.GONE);
+//                qiandao_fragment_main.setVisibility(View.VISIBLE);
 
 
             }

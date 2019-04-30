@@ -1,6 +1,5 @@
 package com.example.testbishe;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +7,9 @@ import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
+
+import com.example.testbishe.QianDao.TestViewStatePagerAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

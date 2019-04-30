@@ -1,4 +1,4 @@
-package com.example.testbishe;
+package com.example.testbishe.QianDao;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +13,7 @@ import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.example.testbishe.R;
 
 import java.util.List;
 
@@ -74,10 +75,13 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
 
 //        // 声明LocationClient类
 //        mLocationClient = new LocationClient(view.getContext());
-//        mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
-        // 注册监听
-        //mLocationClient.registerLocationListener(mBDLocationListener);
-        //获取地址
+//        mBDLocationListener = new MyBDLocationListener();
+//
+//        // 注册监听
+//        mLocationClient.registerLocationListener(mBDLocationListener);
+//        //获取地址
+//
+//        getLocation();
 
 
         //为签到按钮设置点击事件
@@ -88,7 +92,7 @@ public class ItemQiandaoAdapter extends RecyclerView.Adapter<ItemQiandaoAdapter.
 
                 // 声明LocationClient类
                 mLocationClient = new LocationClient(v.getContext());
-                mBDLocationListener = new ItemQiandaoAdapter.MyBDLocationListener();
+                mBDLocationListener = new MyBDLocationListener();
 
                 // 注册监听
                 mLocationClient.registerLocationListener(mBDLocationListener);

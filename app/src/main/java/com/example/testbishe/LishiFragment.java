@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.testbishe.R;
+
 public class LishiFragment extends Fragment {
     public LishiFragment() {
         // Required empty public constructor
