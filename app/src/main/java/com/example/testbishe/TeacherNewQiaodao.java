@@ -27,13 +27,18 @@ public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClick
 
     private TextView show_jiangdu;
     private TextView show_weidu;
+    private Button getgps;
+    private Button teacher_new_cancel;
+    private Button teacher_new_queren;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_new_qiandao);
 
-        Button getgps = (Button) findViewById(R.id.get_gps);
+        getgps = (Button) findViewById(R.id.get_gps);
+        teacher_new_queren = (Button)findViewById(R.id.teacher_new_queren);
+        teacher_new_cancel = (Button)findViewById(R.id.teacher_new_cancel);
         show_jiangdu = (TextView) findViewById(R.id.show_jingdu);
         show_weidu = (TextView) findViewById(R.id.show_weidu);
 
@@ -47,7 +52,8 @@ public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClick
         getLocation();
 
         getgps.setOnClickListener(this);
-
+        teacher_new_queren .setOnClickListener(this);
+        teacher_new_cancel.setOnClickListener(this);
     }
 
 
@@ -78,8 +84,17 @@ public class TeacherNewQiaodao extends AppCompatActivity implements View.OnClick
                      } else {
                          Toast.makeText(v.getContext(), "GPS正在定位", Toast.LENGTH_SHORT).show();
                      }
+                break;
+            case R.id.teacher_new_queren:
 
                 break;
+            case R.id.teacher_new_cancel:
+
+                break;
+
+
+
+
         }
     }
 
